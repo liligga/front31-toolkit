@@ -8,14 +8,8 @@ import {
   fetchTodosWithFetch,
 } from "../store/todosSlice";
 
-const todoItems = [
-  { id: 1, name: "Item 1" },
-  { id: 2, name: "Item 2" },
-  { id: 3, name: "Item 3" },
-];
 
 const TodoTable = () => {
-  // const [items, setItems] = useState(todoItems);
   const { items, loading, error } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 

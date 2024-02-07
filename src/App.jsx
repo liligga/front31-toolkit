@@ -6,7 +6,8 @@ import TodoListPage from "./pages/TodoListPage";
 import UserPage from "./pages/UserPage";
 import PostEditPage from "./pages/PostEditPage";
 import PostsListPage from "./pages/PostsListPage";
-
+import LoginPage from "./pages/LoginPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
           <Route path="counter" element={<CounterPage />} />
           <Route path="user" element={<UserPage />} />
           <Route path="todos" element={<TodoListPage />} />
-          <Route path="posts" element={<PostsListPage />} />
-          <Route path="posts/:id/edit" element={<PostEditPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="posts" element={<PostsListPage />} />
+            <Route path="posts/:id/edit" element={<PostEditPage />} />
+          </Route>
+          <Route path="login" element={<LoginPage />} />
           <Route
             path="*"
             element={<span className="text-2xl">Not found</span>}

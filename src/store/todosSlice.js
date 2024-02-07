@@ -42,14 +42,15 @@ export const addTodo = createAsyncThunk(
     }
 )
 
+const initialState = {
+    loading: false,
+    items: [],
+    error: null
+}
 
 const todosSlice = createSlice({
     name: "todos",
-    initialState: {
-        loading: false,
-        items: [],
-        error: null
-    },
+    initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
